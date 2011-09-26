@@ -1,3 +1,8 @@
-class MyPage
-  # To change this template use File | Settings | File Templates.
+require 'sinatra'
+require 'sinatra/reloader'
+require 'haml'
+
+
+get '/' do
+  haml :index
 end
