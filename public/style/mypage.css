@@ -1,0 +1,46 @@
+html{
+	background-image: url('/images/os.jpg');
+    background-position: center top;
+    background-attachment: fixed;
+}
+
+body{
+    background: transparent;
+}
+
+footer p{
+    color:#3F556A;
+    font-weight:bold;
+}
+
+#personal-photo{
+    text-align:center;
+    background-color:#eee;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin-top:10px;
+}
+
+ul.comments{
+    list-style: none;
+    display-style: block;
+    margin: 0px;
+}
+
+ul.comments li{
+    list-style: none;
+    display-style: block;
+    overflow: hidden;
+    margin-bottom:10px;
+    padding-bottom:10px;
+    border-bottom: 10px solid #eee;
+}
+
+ul.comments li img{
+    float:left;
+    padding: 0px 7px 5px 0px;
+}
+
+.personal-details-content{
+    padding-right:15px;
+}

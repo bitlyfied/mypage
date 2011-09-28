@@ -1,3 +1,106 @@
-#content
-   Hello World!
-   %img{:src => "gb.jpg"}
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+      %title Val's Page
+      %meta{:content => "", :name => "description"}
+        %meta{:content => "", :name => "author"}
+          /[if lt IE 9]
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          %link{:href => "bootstrap/bootstrap.css", :rel => "stylesheet"}
+            :css
+              /* Override some defaults */
+              html, body {
+                background-color: #eee;
+              }
+              body {
+                padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+              }
+              .container > footer p {
+                text-align: center; /* center align it with the container */
+              }
+              .container {
+                width: 820px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
+              }
+
+              /* The white background content wrapper */
+              .content {
+                background-color: #fff;
+                padding: 20px;
+                margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+                -webkit-border-radius: 0 0 6px 6px;
+                   -moz-border-radius: 0 0 6px 6px;
+                        border-radius: 0 0 6px 6px;
+                -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                        box-shadow: 0 1px 2px rgba(0,0,0,.15);
+              }
+
+              /* Page header tweaks */
+              .page-header {
+                background-color: #f5f5f5;
+                padding: 20px 20px 10px;
+                margin: -20px -20px 20px;
+              }
+
+              /* Styles you shouldn't keep as they are for displaying this base example only */
+              .content .span10,
+              .content .span4 {
+                min-height: 500px;
+              }
+              /* Give a quick and non-cross-browser friendly divider */
+              .content .span4 {
+                margin-left: 0;
+                padding-left: 19px;
+                border-left: 1px solid #eee;
+              }
+
+              .topbar .btn {
+                border: 0;
+              }
+
+                / Le fav and touch icons
+            %link{:href => "images/favicon.ico", :rel => "shortcut icon"}
+              %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}
+                %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}
+                  %link{:href => "images/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}
+        %link{:href => "style/mypage.css", :rel => "stylesheet"}
+  %body
+    .topbar
+      .fill
+        .container
+          %a.brand{:href => "#"} MyPage
+          %ul.nav
+            %li.active
+              %a{:href => "#"} Home
+          %form.pull-right{:action => ""}
+            %input.input-small{:placeholder => "Username", :type => "text"}
+              %input.input-small{:placeholder => "Password", :type => "password"}
+                %button.btn{:type => "submit"} Sign in
+    .container
+      .content
+        .page-header
+          %h1
+            Val's Page
+            %small Yes, indeed
+        .row
+          .span10
+            %h2 Personal details
+            %p#personal-photo
+              %img.thumbnail{:alt => "", :src => "/images/me-large.jpg"}
+              %div.personal-details-content
+                %div.alert-message.info= "#{@random_alert}"
+                %div= "#{@first_random_paragraphs}"
+                %div.alert-message.block-message.info= "#{@random_block_message}"
+                %div= "#{@last_random_paragraphs}"
+          .span4
+            %h3 Twitter comments
+            %ul.comments
+              - @twitter_comments.each do |comment|;
+                %li
+                  %img{:src => "#{comment['profile_image_url']}"}
+                  %span= comment["text"]
+                  %span.from_user= comment["from_user"]
+      %footer
+        %p © Maverick S.r.l. 2011
+    / /container
